@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+
+  <body>
+    <script type="module" src="index.js"></script>
+    <div
+      class="container md:w-4xl mx-auto flex flex-col items-center justify-center bg-cyan-50 p-10 h-screen"
+    >
+      <div
+        id="logo"
+        class="flex flex-col items-center justify-center mx-auto hidden"
+      >
+        <img src="logo.png" alt="logo" class="w-[90%]" />
+        <button
+          id="begin-button"
+          class="border-4 rounded-4xl px-20 py-2 bg-green-500 text-slate-900 border-slate-900 font-bold text-xl cursor-pointer"
+        >
+          Let's Begin
+        </button>
+      </div>
+      <div
+        id="form-section"
+        class="flex flex-col items-center justify-center m-4 md:w-full font-semibold hidden"
+      >
+        <div
+          class="flex flex-col items-center justify-center my-4 mx-8 md:w-lg"
+        >
+          <label for="travellers">Number of travellers</label>
+          <select
+            name="travellers"
+            id="travellers"
+            class="border-4 rounded-4xl bg-transparent text-slate-900 border-slate-900 font-bold text-xl md:w-full text-center py-2 px-4 m-2"
+          >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <div class="my-4 mx-8 md:w-lg">
+          <div class="flex flex-col items-center justify-center md:w-full">
+            <label for="from">Flying from</label>
+            <input
+              type="text"
+              id="from"
+              name="from"
+              class="border-4 rounded-4xl bg-transparent text-slate-900 border-slate-900 font-bold text-xl md:w-full text-center py-2 px-4 m-2"
+            />
+          </div>
+          <div class="flex flex-col items-center justify-center md:w-full">
+            <label for="destination">Flying to</label>
+            <input
+              type="text"
+              id="destination"
+              name="destination"
+              class="border-4 rounded-4xl bg-transparent text-slate-900 border-slate-900 font-bold text-xl md:w-full text-center py-2 px-4 m-2"
+            />
+          </div>
+        </div>
+        <div class="my-4 mx-8 md:w-lg">
+          <div class="flex flex-col items-center justify-center md:w-full">
+            <label for="from-date">From Date</label>
+            <input
+              type="date"
+              id="from-date"
+              name="from-date"
+              class="border-4 rounded-4xl bg-transparent text-slate-900 border-slate-900 font-bold text-xl md:w-full text-center py-2 px-4 m-2"
+            />
+          </div>
+          <div class="flex flex-col items-center justify-center md:w-full">
+            <label for="to-date">To Date</label>
+            <input
+              type="date"
+              id="to-date"
+              name="to-date"
+              class="border-4 rounded-4xl bg-transparent text-slate-900 border-slate-900 font-bold text-xl md:w-full text-center py-2 px-4 m-2"
+            />
+          </div>
+        </div>
+        <div
+          class="my-4 mx-8 md:w-lg flex flex-col items-center justify-center"
+        >
+          <label for="budget">Budget</label>
+          <input
+            type="number"
+            id="budget"
+            name="budget"
+            class="border-4 rounded-4xl bg-transparent text-slate-900 border-slate-900 font-bold text-xl md:w-full text-center py-2 px-4 m-2"
+          />
+        </div>
+        <button
+          id="submit-button"
+          type="submit"
+          class="border-4 rounded-4xl px-20 py-2 bg-green-500 text-slate-900 border-slate-900 font-bold text-xl mb-4 cursor-pointer"
+        >
+          Plan my Trip!
+        </button>
+      </div>
+      <div
+        id="recom-section"
+        class="flex flex-col items-center justify-center m-4 md:w-full font-semibold"
+      >
+        <div id="recom-header">
+          <h2 class="text-6xl font-bold">Your Trip</h2>
+        </div>
+        <div
+          id="recom-cards"
+          class="flex items-center justify-center my-4 mx-8 md:w-lg"
+        >
+          <div
+            class="rounded-4xl text-slate-900 font-bold text-xl text-center py-2 px-6 m-2 bg-cyan-200 shadow-md shadow-gray-300"
+          >
+            <span class="mr-2">&rarr;</span
+            ><span id="from-date-card">25th Nov 23</span>
+          </div>
+          <div
+            class="rounded-4xl text-slate-900 font-bold text-xl text-center py-2 px-6 m-2 bg-cyan-200 shadow-md shadow-gray-300"
+          >
+            <span id="to-date-card">5th Dec 23</span
+            ><span class="ml-2">&larr;</span>
+          </div>
+        </div>
+        <div
+          id="trip-location"
+          class="rounded-2xl text-slate-900 font-bold text-xl text-center py-2 px-6 m-2 bg-cyan-200 shadow-md shadow-gray-300 md:w-lg"
+        >
+          <span id="from-location-card">New York City</span> &rarr;
+          <span id="to-location-card">Paris</span>
+        </div>
+        <div
+          class="flex flex-col items-center justify-center my-4 mx-8 md:w-lg"
+        >
+          <h3 class="text-3xl font-semibold">Weather</h3>
+          <div
+            id="weather-recom"
+            class="rounded-2xl text-slate-900 text-center py-2 px-6 m-2 bg-cyan-200 shadow-md shadow-gray-300 md:w-lg text-sm"
+          >
+            You can expect the weather to be quite mild. Low will be 19° and
+            high will be 25°
+          </div>
+        </div>
+        <div
+          class="flex flex-col items-center justify-center my-4 mx-8 md:w-lg"
+        >
+          <h3 class="text-3xl font-semibold">Flights</h3>
+          <div
+            id="flight-recom"
+            class="flex flex-col rounded-2xl text-slate-900 text-center py-2 px-6 m-2 bg-cyan-200 shadow-md shadow-gray-300 md:w-lg text-sm"
+          >
+            <div class="mb-4">
+              The best option for you is with Delta Airlines with a layover in
+              Oslo
+            </div>
+
+            <button
+              id="book-flight"
+              class="border-4 rounded-4xl px-10 py-2 bg-green-500 text-slate-900 border-slate-900 font-bold text-xl cursor-pointer mx-20 mb-2"
+            >
+              Book
+            </button>
+          </div>
+        </div>
+        <div
+          class="flex flex-col items-center justify-center my-4 mx-8 md:w-lg"
+        >
+          <h3 class="text-3xl font-semibold">Hotel</h3>
+          <div
+            id="flight-recom"
+            class="flex flex-col rounded-2xl text-slate-900 text-center py-2 px-6 m-2 bg-cyan-200 shadow-md shadow-gray-300 md:w-lg text-sm"
+          >
+            <div class="mb-4">
+              We recommend you stay at the Premiere Inn hotel in central Paris
+            </div>
+
+            <button
+              id="book-hotel"
+              class="border-4 rounded-4xl px-10 py-2 bg-green-500 text-slate-900 border-slate-900 font-bold text-xl cursor-pointer mx-20 mb-2"
+            >
+              Book
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
