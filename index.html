@@ -94,7 +94,11 @@
               name="budget"
               class="border-4 rounded-4xl bg-transparent text-slate-900 border-slate-900 font-bold text-xl md:w-full text-center py-2 px-4 m-2"
             />
+            <span id="loading-status" class="hidden"
+              >Fetching Travel Recommendations, Please Wait!...</span
+            >
           </div>
+
           <button
             id="plan-trip"
             type="submit"
@@ -118,22 +122,20 @@
           <div
             class="rounded-4xl text-slate-900 font-bold text-xl text-center py-2 px-6 m-2 bg-cyan-200 shadow-md shadow-gray-300"
           >
-            <span class="mr-2">&rarr;</span
-            ><span id="from-date-card">25th Nov 23</span>
+            <span class="mr-2">&rarr;</span><span id="from-date-card"></span>
           </div>
           <div
             class="rounded-4xl text-slate-900 font-bold text-xl text-center py-2 px-6 m-2 bg-cyan-200 shadow-md shadow-gray-300"
           >
-            <span id="to-date-card">5th Dec 23</span
-            ><span class="ml-2">&larr;</span>
+            <span id="to-date-card"></span><span class="ml-2">&larr;</span>
           </div>
         </div>
         <div
           id="trip-location"
           class="rounded-2xl text-slate-900 font-bold text-xl text-center py-2 px-6 m-2 bg-cyan-200 shadow-md shadow-gray-300 md:w-lg"
         >
-          <span id="from-location-card">New York City</span> &rarr;
-          <span id="to-location-card">Paris</span>
+          <span id="from-location-card"></span> &rarr;
+          <span id="to-location-card"></span>
         </div>
         <div
           class="flex flex-col items-center justify-center my-4 mx-8 md:w-lg"
@@ -142,23 +144,16 @@
           <div
             id="weather-recom"
             class="rounded-2xl text-slate-900 text-center py-2 px-6 m-2 bg-cyan-200 shadow-md shadow-gray-300 md:w-lg text-sm"
-          >
-            You can expect the weather to be quite mild. Low will be 19° and
-            high will be 25°
-          </div>
+          ></div>
         </div>
         <div
           class="flex flex-col items-center justify-center my-4 mx-8 md:w-lg"
         >
           <h3 class="text-3xl font-semibold">Flights</h3>
           <div
-            id="flight-recom"
             class="flex flex-col rounded-2xl text-slate-900 text-center py-2 px-6 m-2 bg-cyan-200 shadow-md shadow-gray-300 md:w-lg text-sm"
           >
-            <div class="mb-4">
-              The best option for you is with Delta Airlines with a layover in
-              Oslo
-            </div>
+            <div class="mb-4" id="flight-recom"></div>
 
             <button
               id="book-flight"
@@ -173,12 +168,9 @@
         >
           <h3 class="text-3xl font-semibold">Hotel</h3>
           <div
-            id="flight-recom"
             class="flex flex-col rounded-2xl text-slate-900 text-center py-2 px-6 m-2 bg-cyan-200 shadow-md shadow-gray-300 md:w-lg text-sm"
           >
-            <div class="mb-4">
-              We recommend you stay at the Premiere Inn hotel in central Paris
-            </div>
+            <div class="mb-4" id="hotel-recom"></div>
 
             <button
               id="book-hotel"

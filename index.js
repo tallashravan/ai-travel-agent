@@ -1,4 +1,4 @@
-import { renderStepTwo, processTrip } from "./dom";
+import { renderStepTwo, renderStepThree } from "./dom";
 import { travelRecommendation } from "./agent";
 document
   .getElementById("begin-button")
@@ -7,20 +7,18 @@ document
   });
 
 document
-  .getElementById("plan-trip")
-  .addEventListener("click", function (event) {
-    processTrip();
-  });
-
-document
   .getElementById("form")
   .addEventListener("submit", async function (event) {
     event.preventDefault();
 
+    document.getElementById("loading-status").classList.remove("hidden");
+    document.getElementById("plan-trip").attributes.disabled = true;
+    document
+      .getElementById("plan-trip")
+      .classList.add("cursor-not-allowed", "opacity-50");
     // const inputElement = document.getElementById("user-input");
     // inputElement.focus();
     const formData = new FormData(event.target);
-    processTrip(formData);
     const travellers = formData.get("travellers");
     const from = formData.get("from");
     const destination = formData.get("destination");
@@ -41,7 +39,8 @@ document
       toDate: toDate,
       budget: budget,
     };
-    travelRecommendation(travelInput);
+    const jsonResponse = await travelRecommendation(travelInput);
+    renderStepThree(jsonResponse, travelInput);
     // const query = formData.get("user-input");
     // event.target.reset();
     // await agent(query);

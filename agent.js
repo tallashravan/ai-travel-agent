@@ -9,15 +9,9 @@ const openai = new OpenAI({
 let messages = [
   {
     role: "system",
-    content: `You are a helpful travel agent. Transform technical data into engaging, 
-conversational responses, but only include the normal information a 
-regular person might want unless they explicitly ask for more. Provide 
-highly specific answers based on the information you're given. Prefer 
-to gather information with the tools provided to you rather than 
-giving basic, generic answers. Always return recommendations in this example format only:\n 
-       ###Weather:You can expect the weather to be quite mild. Low will be 19° and high will be 25°\n
-       ###Hotels:The best option for you is with Delta Airlines with a layover in Oslo\n
-       ###Flights:We recommend you stay at the Premiere Inn hotel in central Paris\n`,
+    content: `You are a helpful travel agent. Return travel recommendations based on the user's travel input. Use the format below and always return the recommendations in this JSON format only: \nTransform technical data into engaging, 
+conversational responses, but only include the information as provided in below example format. Always return recommendations in this example format only:\n 
+       {"weather":"You can expect the weather to be quite mild. Low will be 19° and high will be 25°","hotels":"The best option for you is with Delta Airlines with a layover in Oslo","flights":"We recommend you stay at the Premiere Inn hotel in central Paris"}`,
   },
 ];
 
@@ -46,5 +40,11 @@ export async function travelRecommendation(travelInput) {
     });
   const finalContent = await runner.finalContent();
   console.log("response: ", finalContent);
+  try {
+    const jsonResponse = JSON.parse(finalContent);
+    return jsonResponse;
+  } catch (error) {
+    console.log(error);
+  }
   console.log("fetcing travelRecommendations completed!");
 }
